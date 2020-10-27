@@ -13,11 +13,11 @@ import com.typesafe.sbt.packager.SettingsHelper.makeDeploymentSettings
  * https://www.playframework.com/documentation/latest/Requirements
  **/
 
-val projectName: String = "graphing-app-scaffold"
+val projectName: String = "nhsspenddash"
 ThisBuild / organization := "uk.co.imknowles"
 
 ThisBuild / startYear := Some(2021)
-ThisBuild / description := "Web Application scaffold for visualisation dashboards and dataset collections"
+ThisBuild / description := "Web Application for NHS Spending Data"
 
 val githubUser: String = "ianknowles"
 val githubRepo: String = projectName
@@ -60,7 +60,7 @@ lazy val server = (project in file("server"))
 			//"org.webjars" % "bootstrap" % "5.0.0",
 			"org.webjars" % "bootstrap" % "4.6.0",
 			"org.webjars.npm" % "bootstrap-icons" % "1.5.0",
-			"org.webjars" % "d3js" % "6.6.0",
+			"org.webjars" % "d3js" % "5.9.7",
 			"org.webjars.npm" % "topojson" % "3.0.2",
 			"org.webjars" % "jquery" % "3.6.0",
 			"org.webjars" % "popper.js" % "2.9.3",
