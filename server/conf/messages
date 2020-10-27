@@ -1,17 +1,17 @@
 # https://www.playframework.com/documentation/latest/ScalaI18N
 
 # --- Site and Project
-site.title=site.title
-site.desc=site.desc
-site.keywords=dashboard, scaffold, scala, playframework, twirl, scss, scalajs
-project.name=project.name
+site.title=NHS Spend
+site.desc=The Role of the VCS in the NHS
+site.keywords=NHS, NHS Spending, dashboard, scaffold, scala, playframework, twirl, scss, scalajs
+project.name=NHS Spend dashboard
 project.year=2021
 project.copyright=Ian Knowles
 
 # --- Index page
 index.title=Home
-index.jumbo.title=jumbo.title
-index.jumbo.desc=jumbo.desc
+index.jumbo.title=NHS Spend
+index.jumbo.desc=The Role of the VCS in the NHS
 
 # --- Pages
 team.title=Team
