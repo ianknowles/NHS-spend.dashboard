@@ -20,6 +20,10 @@ class HomeController @Inject() (val controllerComponents: ControllerComponents, 
 
 	def coming_soon: Action[AnyContent] = TODO
 
+	def nhsdash: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+		Ok(views.html.pages.nhsdash())
+	}
+
 	def dash: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
 		//TODO should use the directory listing to filter for files present
 		Environment.simple().getFile("public/data").listFiles()
