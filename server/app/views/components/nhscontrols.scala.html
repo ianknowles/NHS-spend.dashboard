@@ -1,5 +1,13 @@
 @(elementID: String)(implicit messages: Messages)
 <div class="d-flex justify-content-between align-items-end flex-wrap pb-2 mb-3">
+	<nav aria-label="">
+		<ul class="pagination">
+			<li id="graphlink" class="page-item active" aria-current="page">
+				<span class="page-link">Graphs</span>
+			</li>
+			<li id="tablelink" class="page-item"><span class="page-link">Table</span></li>
+		</ul>
+	</nav>
 	<div class="btn-toolbar mt-2 mb-0 mr-sm-2 flex-column flex-lg-row">
 		<div class="input-group m-1">
 			<div class="input-group-prepend">

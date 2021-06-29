@@ -748,3 +748,26 @@ function addSearch(id) {
 		}
 	})
 }
+
+d3.select('#tablelink').on('click', table_active)
+
+function graph_active() {
+	d3.select('#graphlink').on('click', null)
+	d3.select('#tablelink').on('click', table_active)
+	d3.select('#graphlink').classed('active', true)
+	d3.select('#tablelink').classed('active', false)
+	d3.select('#graphcol').classed('d-none', false)
+	d3.select('#graphcol').classed('d-flex', true)
+	d3.select('#tablecol').classed('d-none', true)
+	//aria-current="page"
+}
+
+function table_active() {
+	d3.select('#graphlink').on('click', graph_active)
+	d3.select('#tablelink').on('click', null)
+	d3.select('#graphlink').classed('active', false)
+	d3.select('#tablelink').classed('active', true)
+	d3.select('#graphcol').classed('d-none', true)
+	d3.select('#graphcol').classed('d-flex', false)
+	d3.select('#tablecol').classed('d-none', false)
+}

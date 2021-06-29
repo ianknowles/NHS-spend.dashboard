@@ -5,7 +5,7 @@
 		<div class="col-2">
 			<div>@components.nhscontrols("tab1")</div>
 		</div>
-		<div class="col-10 d-flex flex-row justify-content-between" style="min-height: 81vh;" >
+		<div id="graphcol" class="col-10 d-flex flex-row justify-content-between" style="min-height: 81vh;" >
 			<div class="w-50 mr-4">
 				@components.graphs.figure("map", caption="CCG Spending on VCS", chartheight=98)
 			</div>
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-10 d-none">
+		<div id="tablecol" class="col-10 d-none">
 			@components.table("map")
 		</div>
 	</div>
