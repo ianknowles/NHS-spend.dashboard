@@ -5,8 +5,8 @@ site.title=NHS Spend
 site.desc=The Role of the VCS in the NHS
 site.keywords=NHS, NHS Spending, dashboard, scaffold, scala, playframework, twirl, scss, scalajs
 project.name=NHS Spend dashboard
-project.year=2021
-project.copyright=Ian Knowles
+project.year=2020
+project.copyright=Department of Sociology, Oxford
 
 # --- Index page
 index.title=Home
