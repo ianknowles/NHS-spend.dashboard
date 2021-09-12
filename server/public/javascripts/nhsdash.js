@@ -849,7 +849,10 @@ function c3bar(id, data, catcol, cols) {
           format: {
             title: (x, index) => data[x][config.headers.desckey]
           }
-        }
+        },
+		color: {
+			pattern: ['#377eb8', '#ffb94e', '#ffeda0']
+		}
     });
 
 	d3.select(`#${id}-shade`).attr('class', 'd-none')
