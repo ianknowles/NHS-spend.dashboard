@@ -363,7 +363,7 @@ function ccg_geo_map(col) {
 		  .enter().append("rect")
 			.attr("height", function(d) { return y(d[1]) - y(d[0]); })
 			.attr("y", function(d) { return y(d[0]); })
-			.attr("width", 8)
+			.attr("width", 30)
 			.attr("fill", function(d) { return colorScale(d[0]); });
 
 		g.append("text")
@@ -378,7 +378,7 @@ function ccg_geo_map(col) {
 
 		let unitString = col === 'Value (m)' ? "£" : "%"
 		g.call(d3.axisRight(y)
-			.tickSize(13)
+			.tickSize(33)
 			.tickFormat(function(n, i) { return i ? n.toFixed(2) : ((unitString === "£") ? `${unitString}${n}`: `${n} ${unitString}`); })
 			.tickValues(colorScale.domain()))
 		  .select(".domain")
