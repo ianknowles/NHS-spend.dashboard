@@ -268,8 +268,8 @@ function ccg_geo_map(col) {
 	// The svg
 	let svg_id = `${mapName}-SVG`
 	let svg = d3.select(`#${svg_id}`);
-	let width = $(`#${svg_id}`).width();
-	let height = $(`#${svg_id}`).height();
+	let width = $(`#${mapName}-chart-area`).width();
+	let height = $(`#${mapName}-chart-area`).height();
 	svg.attr("viewBox", [0, 0, width, height]);
 	//svg.attr("width", width)
 	//svg.attr("height", height)
