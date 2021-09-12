@@ -2,7 +2,7 @@ let csvdata = {};
 let csvdatalist = [];
 
 let datestring = ""
-let data_url = "/assets/nhs/";
+let data_url = "/assets/nhs/data_dashboard/";
 //`/assets/data/excess/${datafile}`
 
 let sortAscending = false;
