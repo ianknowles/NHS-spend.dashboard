@@ -839,6 +839,9 @@ function c3bar(id, data, catcol, cols) {
 				  text: '% to VCS',
 				  position: 'outer-right'
 				},
+				tick: {
+					format: function (x) { return `${x} %`; }
+				},
 				show: true,
 			},
 		},
