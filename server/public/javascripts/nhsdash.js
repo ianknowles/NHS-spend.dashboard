@@ -288,8 +288,7 @@ function ccg_geo_map(col) {
 	  .center([-2.25, 53])
 	  //.scale(100)
 	  .translate([width / 2, height / 2]);
-	let ppath = d3.geoPath()
-              .projection(ukproj);
+
 	function scale (scaleFactor,width,height,offsetX,offsetY) {
 	  return d3.geoTransform({
 		point: function(x, y) {
@@ -313,6 +312,9 @@ function ccg_geo_map(col) {
     //}).then(function (cols)  {
 
 	d3.json(data_url + 'output.json').then(function(topo) {
+		//ukproj.fitSize([width, height], topo.arcs);
+		let ppath = d3.geoPath()
+			.projection(ukproj);
 		let datadomain = csvdatalist.map(x => parseFloat(x[col]))
 		let max = d3.max(datadomain)
 		let step = max / 8
