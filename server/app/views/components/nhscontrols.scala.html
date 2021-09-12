@@ -17,8 +17,10 @@
 				</label>
 			</div>
 			<select id="@elementID-select-tab" class="custom-select btn-outline-secondary h-100" data-style="btn-primary">
-				<option value="ccg" selected="selected">Clinical Commissioning Groups</option>
-				<option value="trust">Trusts</option>
+				<option value="ccg-cc" selected="selected">Clinical Commissioning Groups / Charities</option>
+				<option value="ccg-ch">Clinical Commissioning Groups / Company</option>
+				<option value="trust-cc">Trusts / Charities</option>
+				<option value="trust-ch">Trusts / Company</option>
 			</select>
 		</div>
 		@*<div class="input-group m-1">
@@ -41,9 +43,9 @@
 				</label>
 			</div>
 			<select id="@elementID-select-column" class="custom-select btn-outline-secondary h-100" data-style="btn-primary">
-				<option value="Value to VCS (%)" selected="selected">Value to VCS (%)</option>
-				<option value="Count to VCS (%)">Count to VCS (%)</option>
-				<option value="Value of Payments (m)">Value of Payments (millions)</option>
+				<option value="Value (%)" selected="selected">Value to VCS (%)</option>
+				<option value="Count (%)">Count to VCS (%)</option>
+				<option value="Value (m)">Value of Payments (millions)</option>
 			</select>
 		</div>
 		<div class="btn-group btn-group-sm m-1">

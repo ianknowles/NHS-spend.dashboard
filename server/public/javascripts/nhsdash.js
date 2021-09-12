@@ -11,36 +11,63 @@ let barchart1;
 let barchart2;
 let pounds = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 0 })
 
-let ccg_config = {
+let ccg_cc_config = {
 	id: 'ccg',
+	subid: 'cc',
 	label: 'CCG',
-	filename: 'ccg_table.csv',
-	bar_cols: ['Value to VCS (%)', 'Count to VCS (%)', 'Value of Payments (m)'],
-	bar_col: 'Value to VCS (%)',
+	filename: 'ccg_table_cc.csv',
+	bar_cols: ['Value (%)', 'Count (%)', 'Value (m)'],
+	bar_col: 'Value (%)',
 	search_col: 'ccg19nm',
 	headers: {
-		'anchorkey': 'ccg19cd',
+		'anchorkey': 'ccg19nm',
 		'desckey': 'ccg19nm',
 		'NHS Abrev': {label: 'NHS Abrev', type: 'String'},
-		'ccg19cd': {label: 'ccg19cd', type: 'String'},
-		'Number of Payments': {label: 'Number of Payments', type: 'Number'},
-		'Value of Payments (m)': {label: 'Value of Payments (m)', type: 'Number', formatter: pounds},
+		//'ccg19cd': {label: 'ccg19cd', type: 'String'},
+		'ccg19nm': {label: 'ccg19nm', type: 'String'},
+		'Count': {label: 'Number of Payments', type: 'Number'},
+		'Value (m)': {label: 'Value of Payments (m)', type: 'Number', formatter: pounds},
 		'Number of Datasets': {label:'Number of Datasets', type: 'Number'},
-		'Value to VCS (%)': {label:'Value to VCS (%)', type: 'Number'},
-		'Count to VCS (%)': {label:'Count to VCS (%)', type: 'Number'},
+		'Value (%)': {label:'Value to VCS (%)', type: 'Number'},
+		'Count (%)': {label:'Count to VCS (%)', type: 'Number'},
 		'Highest Value Charity Recipient': {label:'Highest Value Charity Recipient', type: 'String'},
 		'Number Payments to VCS': {label:'Number Payments to VCS', type: 'Number'},
 		'Number of Charity Suppliers': {label:'Number of Charity Suppliers', type: 'Number'},
-		'ccg19nm': {label: 'ccg19nm', type: 'String'},
 	}
 }
 
-let trust_config = {
+let ccg_ch_config = {
+	id: 'ccg',
+	subid: 'ch',
+	label: 'CCG',
+	filename: 'ccg_table_ch.csv',
+	bar_cols: ['Value (%)', 'Count (%)', 'Value (m)'],
+	bar_col: 'Value (%)',
+	search_col: 'ccg19nm',
+	headers: {
+		'anchorkey': 'ccg19nm',
+		'desckey': 'ccg19nm',
+		'NHS Abrev': {label: 'NHS Abrev', type: 'String'},
+		//'ccg19cd': {label: 'ccg19cd', type: 'String'},
+		'ccg19nm': {label: 'ccg19nm', type: 'String'},
+		'Count': {label: 'Number of Payments', type: 'Number'},
+		'Value (m)': {label: 'Value of Payments (m)', type: 'Number', formatter: pounds},
+		'Number of Datasets': {label:'Number of Datasets', type: 'Number'},
+		'Value (%)': {label:'Value to VCS (%)', type: 'Number'},
+		'Count (%)': {label:'Count to VCS (%)', type: 'Number'},
+		'Highest Value Company Recipient': {label:'Highest Value Company Recipient', type: 'String'},
+		'Number Payments to VCS': {label:'Number Payments to VCS', type: 'Number'},
+		'Number of Company Suppliers': {label:'Number of Company Suppliers', type: 'Number'},
+	}
+}
+
+let trust_cc_config = {
 	id: 'trust',
+	subid: 'cc',
 	label: 'Trust',
-	filename:'trust_table.csv',
-	bar_cols: ['Value to VCS (%)', 'Count to VCS (%)', 'Value of Payments (m)'],
-	bar_col: 'Value to VCS (%)',
+	filename:'trust_table_cc.csv',
+	bar_cols: ['Value (%)', 'Count (%)', 'Value (m)'],
+	bar_col: 'Value (%)',
 	search_col: 'trust name',
 	headers: {
 		'anchorkey': 'trust name',
@@ -49,42 +76,121 @@ let trust_config = {
 		'trust name': {label: 'trust name', type: 'String'},
 		'Latitude': {label: 'Latitude', type: 'Number'},
 		'Longitude': {label: 'Longitude', type: 'Number'},
-		'Number of Payments': {label:'Number of Payments', type: 'Number'},
-		'Value of Payments (m)': {label:'Value of Payments (m)', type: 'Number', formatter: pounds},
+		'Count': {label:'Number of Payments', type: 'Number'},
+		'Value (m)': {label:'Value of Payments (m)', type: 'Number', formatter: pounds},
 		'Number of Datasets': {label:'Number of Datasets', type: 'Number'},
-		'Value to VCS (%)': {label:'Value to VCS (%)', type: 'Number'},
-		'Count to VCS (%)': {label:'Count to VCS (%)', type: 'Number'},
+		'Value (%)': {label:'Value to VCS (%)', type: 'Number'},
+		'Count (%)': {label:'Count to VCS (%)', type: 'Number'},
 		'Highest Value Charity Recipient': {label:'Highest Value Charity Recipient', type: 'String'},
 		'Number Payments to VCS': {label:'Number Payments to VCS', type: 'Number'},
 		'Number of Charity Suppliers': {label:'Number of Charity Suppliers', type: 'Number'},
     }
 }
 
-headers_charities = {
+let trust_ch_config = {
+	id: 'trust',
+	subid: 'ch',
+	label: 'Trust',
+	filename:'trust_table_ch.csv',
+	bar_cols: ['Value (%)', 'Count (%)', 'Value (m)'],
+	bar_col: 'Value (%)',
+	search_col: 'trust name',
+	headers: {
+		'anchorkey': 'trust name',
+		'desckey': 'trust name',
+		'NHS Abrev': {label: 'NHS Abrev', type: 'String'},
+		'trust name': {label: 'trust name', type: 'String'},
+		'Latitude': {label: 'Latitude', type: 'Number'},
+		'Longitude': {label: 'Longitude', type: 'Number'},
+		'Count': {label:'Number of Payments', type: 'Number'},
+		'Value (m)': {label:'Value of Payments (m)', type: 'Number', formatter: pounds},
+		'Number of Datasets': {label:'Number of Datasets', type: 'Number'},
+		'Value (%)': {label:'Value to VCS (%)', type: 'Number'},
+		'Count (%)': {label:'Count to VCS (%)', type: 'Number'},
+		'Highest Value Company Recipient': {label:'Highest Value Company Recipient', type: 'String'},
+		'Number Payments to VCS': {label:'Number Payments to VCS', type: 'Number'},
+		'Number of Company Suppliers': {label:'Number of Company Suppliers', type: 'Number'},
+	}
+}
+
+let headers_cc = {
 	anchorkey: 'Charity Name',
 	desckey: 'Charity Name',
-	cols: ['Number of Payments (%)','Value of Payments (%)'],
+	cols: ['Count (%)','Value (%)'],
 	'Charity Name': {label: 'Charity Name', type: 'String'},
-	'Number of Payments (%)': {label: 'Number of Payments (%)', type: 'Number'},
-	'Value of Payments (%)': {label: 'Value of Payments (%)', type: 'Number'},
+	'Count (%)': {label: 'Number of Payments (%)', type: 'Number'},
+	'Value (%)': {label: 'Value of Payments (%)', type: 'Number'},
 	'Registration Number': {label: 'Registration Number', type: 'Number'},
-	'Registration Date': {label:'Registration Date', type: 'String'},
+	//'Registration Date': {label:'Registration Date', type: 'String'},
 	'Rank': {label:'Rank', type: 'Number'},
 	'Year': {label:'Year', type: 'String'},
 }
 
-headers_companies = {
+let headers_ch = {
+	anchorkey: 'Company Name',
+	desckey: 'Company Name',
+	cols: ['Count (%)','Value (%)'],
+	'Company Name': {label: 'Company Name', type: 'String'},
+	'Count (%)': {label: 'Number of Payments (%)', type: 'Number'},
+	'Value (%)': {label: 'Value of Payments (%)', type: 'Number'},
+	'Rank': {label:'Rank', type: 'Number'},
+	'Year': {label:'Year', type: 'String'},
+}
+
+let headers_org_ccg_cc = {
 	anchorkey: 'NHS Abrev',
 	desckey: 'NHS CCG',
-	cols: ['Charity Value (£)','Count to VCS (%)', 'Value to VCS (%)'],
+	cols: ['Charity Value','Count (%)', 'Value (%)'],
 	'NHS Abrev': {label: 'NHS Abrev', type: 'String'},
-	'Charity Value (£)': {label: 'Charity Value (£)', type: 'Number', formatter: pounds},
+	'Charity Value': {label: 'Charity Value (£)', type: 'Number', formatter: pounds},
 	'Charity Count': {label: 'Charity Count', type: 'Number'},
-	'Count to VCS (%)': {label: 'Count to VCS (%)', type: 'Number'},
-	'Value to VCS (%)': {label:'Value to VCS (%)', type: 'Number'},
+	'Count (%)': {label: 'Count to VCS (%)', type: 'Number'},
+	'Value (%)': {label:'Value to VCS (%)', type: 'Number'},
 	'Rank': {label:'Rank', type: 'Number'},
 	'Year': {label:'Year', type: 'String'},
 	'NHS CCG': {label:'NHS CCG', type: 'String'},
+}
+
+let headers_org_trust_cc = {
+	anchorkey: 'NHS Abrev',
+	desckey: 'NHS Trust',
+	cols: ['Charity Value','Count (%)', 'Value (%)'],
+	'NHS Abrev': {label: 'NHS Abrev', type: 'String'},
+	'Charity Value': {label: 'Charity Value (£)', type: 'Number', formatter: pounds},
+	'Charity Count': {label: 'Charity Count', type: 'Number'},
+	'Count (%)': {label: 'Count to VCS (%)', type: 'Number'},
+	'Value (%)': {label:'Value to VCS (%)', type: 'Number'},
+	'Rank': {label:'Rank', type: 'Number'},
+	'Year': {label:'Year', type: 'String'},
+	'NHS Trust': {label:'NHS Trust', type: 'String'},
+}
+
+let headers_org_ccg_ch = {
+	anchorkey: 'NHS Abrev',
+	desckey: 'NHS CCG',
+	cols: ['Company Value','Count (%)', 'Value (%)'],
+	'NHS Abrev': {label: 'NHS Abrev', type: 'String'},
+	'Company Value': {label: 'Company Value (£)', type: 'Number', formatter: pounds},
+	'Company Count': {label: 'Company Count', type: 'Number'},
+	'Count (%)': {label: 'Count to VCS (%)', type: 'Number'},
+	'Value (%)': {label:'Value to VCS (%)', type: 'Number'},
+	'Rank': {label:'Rank', type: 'Number'},
+	'Year': {label:'Year', type: 'String'},
+	'NHS CCG': {label:'NHS CCG', type: 'String'},
+}
+
+let headers_org_trust_ch = {
+	anchorkey: 'NHS Abrev',
+	desckey: 'NHS Trust',
+	cols: ['Company Value','Count (%)', 'Value (%)'],
+	'NHS Abrev': {label: 'NHS Abrev', type: 'String'},
+	'Company Value': {label: 'Company Value (£)', type: 'Number', formatter: pounds},
+	'Company Count': {label: 'Company Count', type: 'Number'},
+	'Count (%)': {label: 'Count to VCS (%)', type: 'Number'},
+	'Value (%)': {label:'Value to VCS (%)', type: 'Number'},
+	'Rank': {label:'Rank', type: 'Number'},
+	'Year': {label:'Year', type: 'String'},
+	'NHS Trust': {label:'NHS Trust', type: 'String'},
 }
 
 //d3.json(data_url + "data/models.json").then(function(model_index) {
@@ -125,7 +231,7 @@ headers_companies = {
 //)
 
 let tab = 'tab1'
-let config = ccg_config
+let config = ccg_cc_config
 change_config(document.getElementById(`${tab}-select-tab`).value)
 d3.select(`#${tab}-select-tab`).on('change', change_config_callback)
 
@@ -134,10 +240,20 @@ function change_config_callback() {
 }
 
 function change_config(config_string) {
-	if (config_string === 'ccg') {
-		config = ccg_config;
-	} else {
-		config = trust_config;
+	switch (config_string) {
+		case "ccg-ch":
+			config = ccg_ch_config;
+			break;
+		case "trust-ch":
+			config = trust_ch_config;
+			break;
+		case "trust-cc":
+			config = trust_cc_config;
+			break;
+		default:
+		case "ccg-cc":
+			config = ccg_cc_config;
+			break;
 	}
 
 	csvdata = {};
@@ -201,9 +317,9 @@ function ccg_geo_map(col) {
 		let max = d3.max(datadomain)
 		let step = max / 8
 		let colours = d3.schemeBlues[9]
-		if (col === 'Count to VCS (%)') {
+		if (col === 'Count (%)') {
 			colours = d3.schemeOranges[9]
-		} else if (col === 'Value of Payments (m)') {
+		} else if (col === 'Value (m)') {
 			colours = d3.schemeGreens[9]
 		}
 		let colorScale = d3.scaleThreshold()
@@ -260,7 +376,7 @@ function ccg_geo_map(col) {
 			.attr("font-weight", "bold")
 			.text(col);
 
-		let unitString = col === 'Value of Payments (m)' ? "£" : "%"
+		let unitString = col === 'Value (m)' ? "£" : "%"
 		g.call(d3.axisRight(y)
 			.tickSize(13)
 			.tickFormat(function(n, i) { return i ? n.toFixed(2) : ((unitString === "£") ? `${unitString}${n}`: `${n} ${unitString}`); })
@@ -321,7 +437,9 @@ function ccg_geo_map(col) {
 		svgbbox = svg.node().getBoundingClientRect();
 		mapgroup.attr("transform", `translate(${-(bbox.left - svgbbox.left)}, ${-(bbox.top - svgbbox.top) + 50})`)
 		d3.select(`#${mapName}-shade`).attr('class', 'd-none')
-		console.log(ukproj([parseFloat(csvdatalist[0].Longitude), parseFloat(csvdatalist[0].Latitude)]))
+		//console.log(ukproj([parseFloat(csvdatalist[0].Longitude), parseFloat(csvdatalist[0].Latitude)]))
+		let sublabel = config.subid === "cc" ? "Charities" : "Companies"
+		d3.select(`#${mapName}-chart-caption`).text(`${config.label} spending on VCS ${sublabel}, ${config.headers[col].label}`)
 	})
 }
 
@@ -443,8 +561,9 @@ function fetch_csv() {
             csvdatalist.push(d);
     }).then(ready);
     let select = document.getElementById("year-picker");
-    d3.csv(`${data_url}${config.id}_top10_charities.csv`).then(data => charities(data, select.value));
-    d3.csv(`${data_url}${config.id}_top10_orgs.csv`).then(data => orgs(data, select.value));
+    let by = document.getElementById(`${tab}-select-column`).value === "Count (%)" ? "bycount" : "byvalue";
+    d3.csv(`${data_url}${config.id}_top10_${config.subid}_${by}.csv`).then(data => charities(data, select.value));
+    d3.csv(`${data_url}${config.id}_top10_orgs_${config.subid}_${by}.csv`).then(data => orgs(data, select.value));
 
 	d3.select(`#${tab}-csvlink`).on("click", function() {location.href=csv_url;});
 }
@@ -459,10 +578,13 @@ function charities(data, year) {
 	select.onchange = function(d) {charities(charities_data, this.value); orgs(orgs_data, this.value)}
     let charitiesbarcol = 'Rank'
     let bardata = data.filter(x => !isNaN(x[charitiesbarcol])).filter(x => x['Year'] === year);
-    bardata = bardata.sort((a, b) => a['Rank'] - b['Rank']);
+    bardata = bardata.sort((a, b) => a[charitiesbarcol] - b[charitiesbarcol]);
     let chart_id = 'bar'
-    barchart1 = c3bar(chart_id, bardata.slice(0, 10), headers_charities.anchorkey, headers_charities.cols);
-    d3.select(`#${chart_id}-chart-caption`).text(`${config.label} top 10 Procurers from VCS in ${year}`)
+	let headers = config.subid === "cc" ? headers_cc : headers_ch
+    barchart1 = c3bar(chart_id, bardata.slice(0, 10), headers.anchorkey, headers.cols);
+	let by = document.getElementById(`${tab}-select-column`).value === "Count (%)" ? "Count" : "Value";
+	let sublabel = config.subid === "cc" ? "Charity" : "Company"
+    d3.select(`#${chart_id}-chart-caption`).text(`Top 10 VCS Suppliers (${sublabel}) to ${config.label} in ${year}, ranked by ${by}`)
 }
 
 let orgs_data
@@ -471,11 +593,18 @@ function orgs(data, year) {
     orgs_data = data
     let companiesbarcol = 'Rank'
     let bardata = data.filter(x => !isNaN(x[companiesbarcol])).filter(x => x['Year'] === year);
-    bardata = bardata.sort((a, b) => a['Rank'] - b['Rank']);
+    bardata = bardata.sort((a, b) => a[companiesbarcol] - b[companiesbarcol]);
     //barchart2 = c3bar('bar2', bardata.slice(0, 10), headers_companies.anchorkey, ['Charity Value (£)', 'Charity Count','Count to VCS (%)', 'Value to VCS (%)']);
     let chart_id = 'bar2'
-    barchart2 = c3bar(chart_id, bardata.slice(0, 10), headers_companies.anchorkey, headers_companies.cols);
-    d3.select(`#${chart_id}-chart-caption`).text(`${config.label} top 10 VCS Suppliers in ${year}`)
+	let headers = headers_org_ccg_ch
+	if (config.id === "trust") {
+		headers = config.subid === "cc" ? headers_org_trust_cc : headers_org_trust_ch
+	} else {
+		headers = config.subid === "cc" ? headers_org_ccg_cc : headers_org_ccg_ch
+	}
+    barchart2 = c3bar(chart_id, bardata.slice(0, 10), headers.anchorkey, headers.cols);
+	let by = document.getElementById(`${tab}-select-column`).value === "Count (%)" ? "Count" : "Value";
+    d3.select(`#${chart_id}-chart-caption`).text(`Top 10 Procurers (${config.label}) from VCS in ${year}, ranked by ${by}`)
 }
 
 function ready(error, us) {
@@ -521,7 +650,7 @@ function ready(error, us) {
 		//window.open("mailto:?to=&body=I'd%20like%20to%20share%20this%20Digital%20Gender%20Gaps%20report%20with%20you.%0A%0A" + window.location.href + "&subject=Digital%20Gender%20Gaps%20Report%20-%20" + report_title, '_blank');
 	})
 	addSearch('map')
-	ccg_geo_map(config.bar_col)
+	ccg_geo_map(selCol1.value)
 	d3.select(`#${tab}-select-column`).on('change', changeColumn)
 }
 
@@ -548,6 +677,10 @@ function update(col, colname) {
     //d3.select(`#${chart_id}-chart-caption`).text(`Top 10 Procurers from VCS in ${year} by ${colname}`)
     //chart_id = 'bar2'
     //d3.select(`#${chart_id}-chart-caption`).text(`Top 10 VCS Suppliers in ${year} by ${colname}`)
+	let select = document.getElementById("year-picker");
+	let by = col === "Count (%)" ? "bycount" : "byvalue";
+	d3.csv(`${data_url}${config.id}_top10_${config.subid}_${by}.csv`).then(data => charities(charities_data, select.value));
+	d3.csv(`${data_url}${config.id}_top10_orgs_${config.subid}_${by}.csv`).then(data => orgs(orgs_data, select.value));
 }
 
 
@@ -655,24 +788,28 @@ function c3bar(id, data, catcol, cols) {
 			keys: { x: catcol, value: cols},
             type: 'bar',
             axes: {
-            	'Value to VCS (%)': 'y2',
-            	'Count to VCS (%)': 'y2',
-            	'Value of Payments (m)': 'y',
-            	'Number of Payments (%)': 'y2',
-            	'Value of Payments (%)': 'y2',
+            	'Value (%)': 'y2',
+            	'Count (%)': 'y2',
+            	'Value (m)': 'y',
+            	//'Number of Payments (%)': 'y2',
+            	//'Value of Payments (%)': 'y2',
             	'Rank': 'y2',
-            	'Charity Value (£)': 'y',
+            	'Charity Value': 'y',
             	'Charity Count': 'y2',
+				'Company Value': 'y',
+				'Company Count': 'y2',
             },
             names : {
-            	'Value to VCS (%)': 'Value to VCS (%)',
-            	'Count to VCS (%)': 'Count to VCS (%)',
-            	'Value of Payments (m)': 'Value of Payments (m)',
-            	'Number of Payments (%)': 'Number of Payments (%)',
-            	'Value of Payments (%)': 'Value of Payments (%)',
+            	'Value (%)': 'Value to VCS (%)',
+            	'Count (%)': 'Count to VCS (%)',
+            	'Value (m)': 'Value of Payments (m)',
+            	//'Number of Payments (%)': 'Number of Payments (%)',
+            	//'Value of Payments (%)': 'Value of Payments (%)',
             	'Rank': 'Rank',
-            	'Charity Value (£)': 'Charity Value (£)',
+            	'Charity Value': 'Charity Value (£)',
                 'Charity Count': 'Charity Count',
+				'Company Value': 'Company Value (£)',
+				'Company Count': 'Company Count',
             },
 			//onclick: function (d, i) { console.log("onclick", d, i); },
 			//onmouseover: function (d, i) { console.log("onmouseover", d, i); },
