@@ -280,8 +280,8 @@ function ccg_geo_map(col) {
 		.center([-2.25, 53])
 		.rotate([4.4, 0])
 		.parallels([50, 60])
-		.scale(width * 11)
-		//.translate([width / 2, height / 2]);
+		.scale(width * 8.5)
+		.translate([width / 2, height / 2]);
 	let projection = d3.geoTransverseMercator()
 	  //.scale(height / Math.PI)
 	  .scale(5000)
