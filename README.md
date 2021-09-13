@@ -1,6 +1,6 @@
-![Preview image of the main visualisation for nhsspenddash](server/public/images/site_preview.png "nhsspenddash")
+![Preview image of the main visualisation for NHS-spend.dashboard](server/public/images/site_preview.png "NHS-spend.dashboard")
 
-# nhsspenddash
+# NHS-spend.dashboard
 
 A data dashboard for NHS spending data.
 

@@ -13,7 +13,7 @@ import com.typesafe.sbt.packager.SettingsHelper.makeDeploymentSettings
  * https://www.playframework.com/documentation/latest/Requirements
  **/
 
-val projectName: String = "nhsspenddash"
+val projectName: String = "NHS-spend.dashboard"
 ThisBuild / organization := "uk.co.imknowles"
 
 ThisBuild / startYear := Some(2021)
