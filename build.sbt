@@ -16,7 +16,7 @@ import com.typesafe.sbt.packager.SettingsHelper.makeDeploymentSettings
 val projectName: String = "NHS-spend.dashboard"
 ThisBuild / organization := "uk.co.imknowles"
 
-ThisBuild / startYear := Some(2021)
+ThisBuild / startYear := Some(2019)
 ThisBuild / description := "Web Application for NHS Spending Data"
 
 val githubUser: String = "ianknowles"
