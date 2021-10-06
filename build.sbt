@@ -23,7 +23,7 @@ val githubUser: String = "ianknowles"
 val githubRepo: String = projectName
 
 ThisBuild / scalaVersion := "2.13.6"
-ThisBuild / version      := "1.0.1-SNAPSHOT"
+ThisBuild / version      := "1.0.0"
 ThisBuild / versionScheme := Some("early-semver")
 ThisBuild / scalacOptions ++= Seq(
 	"-feature",
