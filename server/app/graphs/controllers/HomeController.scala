@@ -14,10 +14,6 @@ import graphs.shared.SharedMessages
 @Singleton
 class HomeController @Inject() (val controllerComponents: ControllerComponents, config: Configuration)(implicit webJarsUtil: org.webjars.play.WebJarsUtil) extends BaseController with I18nSupport {
 
-	def index: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-		Ok(views.html.pages.index(SharedMessages.itWorks))
-	}
-
 	def coming_soon: Action[AnyContent] = TODO
 
 	def nhsdash: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
